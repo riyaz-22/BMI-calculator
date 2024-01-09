@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="icon" type="image/jpg" href="Img/DP.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2 class="head">Calculate your Body Mass Index</h2>
+    <img class="chart" src="Img/BMI pic.png" alt="Chart">
+    <img class="logo" src="Img/maadhiyamik.png" alt="company logo">
+    <div class="box">
+        <p class="info"><a href="https://www.cdc.gov/healthyweight/assessing/bmi/index.html">Body Mass Index (BMI)</a> is a person's 
+           weight in kilograms (or pounds) divided 
+           by the square of height in meters (or feet). 
+           A high BMI can indicate high body fatness. 
+           BMI screens for weight categories that may 
+           lead to health problems, but it does not 
+           diagnose the body fatness or health of 
+           an individual.
+
+           To Check your BMI here...
+           <ul>
+            <li>Enter Name, Age, Gender, Adjust Weight and Height sliders for to Calculate BMI</li>
+            <li>Press 'Calculate' Button to compute BMI and BMI Category</li>
+           </ul>
+           <img id="point" src="Img/arrow_point-removebg-preview.png" alt="pointing BMI box">
+        </p>
+        
+        <div id="BMI">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" pattern="[A-Za-z]+" minlength="3" required><br><br> 
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="16" max="100" required> <br><br>
+
+            <label for="gender-select">Select Gender:</label><br><br>
+            <input type="radio" name="gender" id="male" required>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" required>
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="others" required>
+            <label for="others">Others</label>
+
+            <div class="height-weight">
+                <p>
+                    <label for="height">Height: <span id="heightValue">150</span> cm</label><br>
+                    <input type="range" name="height" id="height" min="60" max="200" onchange="updateSliderValue('height', 'heightValue')" required>
+                </p>
+                <p>
+                    <label for="weight">Weight: <span id="weightValue">65</span> kg</label><br>
+                    <input type="range" name="weight" id="weight" min="30" max="150" onchange="updateSliderValue('weight', 'weightValue')" required>
+                </p>
+            </div> 
+            
+            <input class="button" type="button" value="Calculate" onclick="calculateBMI()">
+        </div>
+            
+            <p id="report"></p>
+    </div>
+    <script>
+        function calculateBMI() {
+
+            var name = document.getElementById("name").value;
+            var age = parseInt(document.getElementById("age").value);
+            var gender = document.querySelector('input[name="gender"]:checked').id;
+            var height = parseInt(document.getElementById("height").value);
+            var weight = parseInt(document.getElementById("weight").value);
+
+            if (name.length < 3 || isNaN(age) || age < 16 || age > 100) {
+                alert("Please enter a valid name and age.");
+                return;
+            }
+
+            var heightInMeters = height / 100;
+            var bmi = weight / (heightInMeters * heightInMeters);
+            var bmiCategory = getBMICategory(bmi);
+            var resultDiv = document.getElementById("report");
+            var bmiColors = {
+            "Underweight": "#FFEB3B",
+            "Normal": "#66BB6A",
+            "Overweight": "#EF6C00",
+            "Obese": "#FF0000"
+            };
+
+            resultDiv.style.backgroundColor = bmiColors[bmiCategory];
+
+            resultDiv.innerHTML =`
+            <h3>BMI Report</h3>
+                <p>
+                    <strong>Name:</strong> ${name}<br>
+                    <strong>Age:</strong> ${age}<br>
+                    <strong>Gender:</strong> ${gender}<br>
+                    <strong>BMI:</strong> ${bmi.toFixed(2)}<br>
+                    <strong>BMI Category:</strong> ${bmiCategory}
+                </p>`;
+            resultDiv.scrollIntoView({ behavior: "smooth" });
+
+        } 
+
+        function updateSliderValue(sliderId, displayId) {
+            var slider = document.getElementById(sliderId);
+            var display = document.getElementById(displayId);
+            display.innerHTML = slider.value;
+        }
+
+        function getBMICategory(bmi) {
+            if (bmi < 18.5) return "Underweight";
+            else if (bmi < 24.9) return "Normal";
+            else if (bmi < 29.9) return "Overweight";
+            else return "Obese";
+        }
+    </script>
+</body>
+</html>

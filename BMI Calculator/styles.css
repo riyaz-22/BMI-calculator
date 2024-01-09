@@ -1,0 +1,83 @@
+body{
+    margin: 5px 100px auto 100px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+.head{
+    color: rgb(0, 0, 128);
+}
+.info{
+    text-align: justify;
+    line-height: 1.5;
+}
+li{
+    line-height: 3;
+}
+.height-weight{
+    line-height: 1.5;
+}
+label{
+    font-weight: bold;
+}
+#BMI{
+    margin: 10px 350px;
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 20px 20px 20px 20px;
+    background-color: aliceblue;
+}
+#report{
+    line-height: 2;
+    border: 2px solid white;
+    padding-left: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: aliceblue;
+    border-radius: 12px;
+}
+.chart{
+    position: absolute;
+    top: 124px;
+    right: 155px;
+    width: 300px;
+    }
+
+.button{
+    background-color: rgb(31, 150, 197);
+    font-family: Verdana;
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: navy;
+    transition-duration: 0.4s;
+    
+}
+
+.button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input[type="range"]{
+    width: 350px;
+}
+h3{
+    text-decoration: underline;
+}
+
+#point{
+    position: absolute;
+    top: 200px;
+    width: 300px;
+    left: 150px;
+    height: 300px;
+   
+}
+.logo{
+    position: absolute;
+    width: 90px;
+    height: 100px;
+    left: 10px;
+    top: 20px;
+}

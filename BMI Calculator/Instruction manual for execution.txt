@@ -1,0 +1,31 @@
+
+BMI Calculator Application - Setup Instructions
+------------------------------------------------------------
+
+1. Prerequisites:  Ensure that you have a modern web browser installed.
+
+2. Steps to Run the Application: 
+     Download and Extract the Zip File
+     Download the zip file containing the BMI calculator application.
+     Extract the contents of the zip file to a location of your choice.
+     Navigate to the Application Directory:
+
+3. Open the extracted folder. 
+
+4. Run the Application Locally:
+
+    Locate the index.html file in the folder.
+    Double-click on index.html to open it in your default web browser.
+    Alternatively, you can right-click on index.html and choose "Open with" to select your preferred browser.
+    Interact with the BMI Calculator:
+	The BMI calculator web page should now be displayed in your browser.
+	Follow the on-screen instructions to input your name, age, gender, height, and weight.
+	Click the "Calculate" button to compute your BMI and view the BMI report.
+
+Access the BMI Calculator Online (Optional):
+---------------------------------------------------------
+If you prefer, you can also access the BMI calculator online via the provided Netlify hosting link:
+
+Hosting Link:   https://bmi-calculator-interntask.netlify.app/
+
+Simply click on the link above to access the BMI calculator without the need to download or run it locally.
